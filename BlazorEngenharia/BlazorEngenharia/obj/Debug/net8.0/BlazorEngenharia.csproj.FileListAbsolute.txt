@@ -12,6 +12,7 @@ C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\icudt_EFIGS.dat
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\icudt_no_CJK.dat
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.wasm
+C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.wasm
@@ -245,6 +246,7 @@ C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\System.Reflection.DispatchProxy.wasm.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.JSInterop.WebAssembly.wasm.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\System.Net.WebSockets.Client.wasm.gz
+C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.wasm.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.wasm.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\System.Collections.NonGeneric.wasm.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\wwwroot\_framework\System.ServiceProcess.wasm.gz
@@ -411,6 +413,7 @@ C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\BlazorEngenharia.pdb
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.dll
@@ -617,6 +620,7 @@ C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\BlazorEngenharia.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
+C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Authorization.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Web.wasm
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.WebAssembly.wasm
@@ -823,6 +827,7 @@ C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\lgdrz35jg0.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\jyo5w0ddek.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\rnib1lp4iy.gz
+C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\6c5sd76n3s.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\fqs1c320p1.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\sx8ryi4jxk.gz
 C:\Users\galoc\Desktop\Blazor\BlazorEngenharia\BlazorEngenharia\obj\Debug\net8.0\compressed\ymhrwf6sb1.gz

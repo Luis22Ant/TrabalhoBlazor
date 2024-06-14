@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xl5j7nyjeL1hBKyNAo/6N1xjhMO8QzD8bNIcGBQuKUo=",
+  "Hash": "t4xSYjbAV55V2UE1MgLDNl6qy2a5bz6jLPuYrwDp9vI=",
   "Source": "BlazorEngenharia",
   "BasePath": "/",
   "Mode": "Root",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Authorization.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm",
+      "SourceId": "BlazorEngenharia",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Components.Authorization.wasm"
     },
     {
       "Identity": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.wasm",
@@ -4708,6 +4727,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.WebSockets.Client.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\compressed\\6c5sd76n3s.gz",
+      "SourceId": "BlazorEngenharia",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm"
     },
     {
       "Identity": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\compressed\\6kj2u0sosf.gz",

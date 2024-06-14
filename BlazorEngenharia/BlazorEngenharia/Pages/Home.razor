@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Forms
 @inject HttpClient Http
+@inject NavigationManager NavigationManager
 
 <div class="container">
     <div class="row">
@@ -25,18 +26,18 @@
 
 @code {
     private Usuario user = new Usuario();
-
     private async Task EnviarFormLogin()
     {
         try
         {
-          
+
             var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Login", user);
 
             if (response.IsSuccessStatusCode)
             {
 
                 Console.WriteLine("Login bem-sucedido!");
+                NavigationManager.NavigateTo("/");
             }
             else
             {
