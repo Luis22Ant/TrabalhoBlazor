@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\compressed\\lgdrz35jg0.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEngenharia.styles.css",
+      "PackagePath": "staticwebassets\\BlazorEngenharia.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorEngenharia.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorEngenharia.props",
+      "PackagePath": "build\\BlazorEngenharia.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorEngenharia.props",
+      "PackagePath": "buildMultiTargeting\\BlazorEngenharia.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorEngenharia.props",
+      "PackagePath": "buildTransitive\\BlazorEngenharia.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

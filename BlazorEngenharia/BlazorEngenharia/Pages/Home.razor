@@ -1,0 +1,70 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Forms
+@inject HttpClient Http
+
+<div class="container">
+    <div class="row">
+        <EditForm Model="@user" OnValidSubmit="@EnviarFormLogin">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Login</label>
+                <InputText @bind-Value="user.Login" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Senha</label>
+                <InputText @bind-Value="user.Senha" type="password" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Usuario user = new Usuario();
+
+    private async Task EnviarFormLogin()
+    {
+        try
+        {
+          
+            var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Login", user);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                Console.WriteLine("Login bem-sucedido!");
+            }
+            else
+            {
+
+                Console.WriteLine("Falha no login!");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao fazer login: {ex.Message}");
+        }
+    }
+
+    public class Usuario
+    {
+        public int Id { get; set; }
+
+        public string Nome { get; set; } = string.Empty;
+        public string Login { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public TipoAcesso TipoAcesso { get; set; }
+        public string UltimoAcesso { get; set; } = string.Empty;
+        public string DataCriacao { get; set; } = string.Empty;
+    }
+
+    public enum TipoAcesso
+    {
+        Admin = 0,
+        Usuario = 1
+    }
+}

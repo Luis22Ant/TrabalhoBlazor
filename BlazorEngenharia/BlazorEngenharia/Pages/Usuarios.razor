@@ -1,0 +1,137 @@
+﻿@page "/usuarios"
+@using System.Text.Json
+
+@inject HttpClient Http;
+
+
+<h1>Chamada API</h1>
+<button @onclick="@GetDoadores">Buscar todos</button>
+<style>
+    #GdvDoador th {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    #GdvDoador td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    #GdvDoador {
+        margin-top: 2rem;
+    }
+</style>
+<table id="GdvDoador">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>Senha</th>
+            <th>Data Criação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in usuarios)
+        {
+            <tr>
+                <td><i class="fas fa-eye"></i></td>
+                <td><i class="fas fa-pen"></i></td>
+                <td><a style="cursor: pointer;" @onclick="() => DeleteDoador(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Login</td>
+                <td>@item.Senha</td>
+                <td>@item.DataCriacao</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Usuario> usuarios = new List<Usuario>();
+
+    async Task GetDoadores()
+    {
+        try
+        {
+
+            var response = await Http.GetFromJsonAsync<List<Usuario>>("https://localhost:7165/api/Usuario");
+  
+      
+
+            if (response != null)
+            {
+                usuarios = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+
+    async Task DeleteDoador(int id)
+    {
+        try
+        {
+            var response = await Http.DeleteAsync($"https://localhost:7124/api/Doador/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var deleteResponse = JsonSerializer.Deserialize<DeleteResponse>(content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Deu bom");
+                }
+                else
+                {
+                    Console.WriteLine("Deu ruim");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine($"Falha na requisição DELETE. Status code: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao excluir doador: {ex.Message}");
+        }
+    }
+
+
+    public class ApiResponse
+    {
+        public List<Usuario> DoadorList { get; set; }
+    }
+
+    public class DeleteResponse
+    {
+        public bool Result { get; set; }
+    }
+
+    public class Usuario
+    {
+        public int Id { get; set; }
+
+        public string Nome { get; set; } = string.Empty;
+        public string Login { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public TipoAcesso TipoAcesso { get; set; }
+        public string UltimoAcesso { get; set; } = string.Empty;
+        public string DataCriacao { get; set; } = string.Empty;
+    }
+
+    public enum TipoAcesso
+    {
+        Admin = 0,
+        Usuario = 1
+    }
+}
