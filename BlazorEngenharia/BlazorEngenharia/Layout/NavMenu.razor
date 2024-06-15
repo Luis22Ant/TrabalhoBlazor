@@ -12,22 +12,19 @@
 
 <div class="@NavMenuCssClass nav-scrollable">
     <nav @onclick="ToggleNavMenu" class="flex-column">
-        <AuthorizeView>
-            <Authorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="usuarios">
-                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Usuários
-                    </NavLink>
-                </div>
-            </Authorized>
-            <NotAuthorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Login
-                    </NavLink>
-                </div>
-            </NotAuthorized>
-        </AuthorizeView>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="usuarios">
+                <i class="fa-solid fa-user"></i> &nbsp;&nbsp;<span aria-hidden="true">  Usuários</span>
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Login
+            </NavLink>
+        </div>
+
     </nav>
 </div>
 

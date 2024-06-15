@@ -26,8 +26,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/AddUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/UpdateUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Usuarios.razor]

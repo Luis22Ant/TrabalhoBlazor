@@ -1,4 +1,5 @@
 ﻿@page "/"
+
 @using Microsoft.AspNetCore.Components.Forms
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
@@ -37,7 +38,8 @@
             {
 
                 Console.WriteLine("Login bem-sucedido!");
-                NavigationManager.NavigateTo("/");
+            
+                NavigationManager.NavigateTo("/usuarios");
             }
             else
             {

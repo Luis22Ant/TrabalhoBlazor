@@ -1,0 +1,107 @@
+﻿@page "/atualizarUsuario/{id:int}"
+@using static BlazorEngenharia.Pages.Usuarios
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Adicionar Usuário</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@user" OnValidSubmit="@Atualizar">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Nome</label>
+                    <InputText @bind-Value="user.Nome" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Login</label>
+                    <InputText @bind-Value="user.Login" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <InputText @bind-Value="user.Senha" type="password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Tipo de usuário</label>
+                    <InputSelect @bind-Value="user.TipoAcesso" class="form-control">
+                        <option value="Admin">Administrador</option>
+                        <option value="Usuario">Usuário</option>
+                    </InputSelect>
+                </div>
+                <div style="margin-top:1vh;">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button class="btn btn-danger" @onclick="@VoltarTela">Voltar</button>
+                </div>
+
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    private Usuario user = new Usuario();
+    [Parameter]
+    public int id { get; set; }
+    private async Task Atualizar()
+    {
+        try
+        {
+
+            var response = await Http.PutAsJsonAsync("https://localhost:7165/api/Usuario/" + id, user);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+              
+
+                NavigationManager.NavigateTo("/usuarios");
+            }
+            else
+            {
+
+                Console.WriteLine("Falha na alteração!");
+            }
+        }
+        catch (Exception ex)
+        {
+            
+        }
+    }
+
+
+    private async Task CarregarUser()
+    {
+        try
+        {
+            var url = "https://localhost:7165/api/Usuario/" + id;
+            var response = await Http.GetFromJsonAsync<Usuario>(url);
+
+            if(response != null)
+            {
+                user = response;
+            }
+        }
+        catch (Exception ex)
+        {
+          
+        }
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await CarregarUser();
+    }
+
+    public void VoltarTela()
+    {
+        NavigationManager.NavigateTo("/usuarios");
+    }
+}

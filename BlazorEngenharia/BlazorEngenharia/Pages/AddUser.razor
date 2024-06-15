@@ -1,0 +1,81 @@
+﻿@page "/adicionarUsuario"
+@using static BlazorEngenharia.Pages.Usuarios
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Adicionar Usuário</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@user" OnValidSubmit="@CadastrarUser">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Nome</label>
+                    <InputText  @bind-Value="user.Nome" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Login</label>
+                    <InputText @bind-Value="user.Login" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <InputText @bind-Value="user.Senha" type="password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Tipo de usuário</label>
+                    <InputSelect @bind-Value="user.TipoAcesso" class="form-control">
+                        <option value="Admin">Administrador</option>
+                        <option value="Usuario">Usuário</option>
+                    </InputSelect>
+                </div>
+                <div style="margin-top:1vh;">
+                    <button  type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button class="btn btn-danger" @onclick="@VoltarTela">Voltar</button>
+                </div>
+
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    private Usuario user = new Usuario();
+    private async Task CadastrarUser()
+    {
+        try
+        {
+
+            var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Usuario", user);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                Console.WriteLine("Login bem-sucedido!");
+
+                NavigationManager.NavigateTo("/usuarios");
+            }
+            else
+            {
+
+                Console.WriteLine("Falha no login!");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao fazer login: {ex.Message}");
+        }
+    }
+
+    public void VoltarTela()
+    {
+        NavigationManager.NavigateTo("/usuarios");
+    }
+}

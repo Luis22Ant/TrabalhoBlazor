@@ -1,11 +1,12 @@
 ﻿@page "/usuarios"
 @using System.Text.Json
-
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager NavigationManager
 @inject HttpClient Http;
 
 
-<h1>Chamada API</h1>
-<button @onclick="@GetDoadores">Buscar todos</button>
+<h1>Tela de usuários</h1>
+<button id="BtnAddUser" class="btn btn-success" @onclick="@AddUser">Adicionar usuário</button>
 <style>
     #GdvDoador th {
         border: 1px solid black;
@@ -20,48 +21,64 @@
     #GdvDoador {
         margin-top: 2rem;
     }
+
+    #BtnAddUser {
+        margin-bottom: 2rem;
+    }
 </style>
-<table id="GdvDoador">
-    <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Login</th>
-            <th>Senha</th>
-            <th>Data Criação</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in usuarios)
-        {
+
+@if (Loading)
+{
+    <p>Carregando...</p>
+}
+else if (usuarios != null)
+{
+    <table id="GdvDoador">
+        <thead>
             <tr>
-                <td><i class="fas fa-eye"></i></td>
-                <td><i class="fas fa-pen"></i></td>
-                <td><a style="cursor: pointer;" @onclick="() => DeleteDoador(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
-                <td>@item.Id</td>
-                <td>@item.Nome</td>
-                <td>@item.Login</td>
-                <td>@item.Senha</td>
-                <td>@item.DataCriacao</td>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>Senha</th>
+                <th>Tipo</th>
+                <th>Data Criação</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in usuarios)
+            {
+                <tr>
+                    <td><a style="cursor: pointer;" @onclick="() => ViewUser(item.Id)"><i class="fas fa-eye"></i></a></td>
+                    <td><a style="cursor: pointer;" @onclick="() => UpdateUser(item.Id)"><i class="fas fa-pen"></i></a></td>
+                    <td><a style="cursor: pointer;" @onclick="() => DeleteUsuario(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Login</td>
+                    <td>@item.Senha</td>
+                    <td>@item.TipoAcesso</td>
+                    <td>@item.DataCriacao</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 
 @code {
     List<Usuario> usuarios = new List<Usuario>();
-
-    async Task GetDoadores()
+    private bool Loading = true;
+    private Usuario user = new Usuario();
+    async Task GetUsuarios()
     {
         try
         {
 
             var response = await Http.GetFromJsonAsync<List<Usuario>>("https://localhost:7165/api/Usuario");
-  
-      
+
+
 
             if (response != null)
             {
@@ -72,22 +89,46 @@
         {
             ex.ToString();
         }
+
+        finally
+        {
+            Loading = false;
+        }
     }
 
-    async Task DeleteDoador(int id)
+    public void AddUser()
+    {
+        NavigationManager.NavigateTo("/adicionarUsuario");
+    }
+
+    public void UpdateUser(int id)
+    {
+        NavigationManager.NavigateTo($"/atualizarUsuario/{id}");
+    }
+
+    public void ViewUser(int id)
+    {
+        NavigationManager.NavigateTo("/adicionarUsuario");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetUsuarios();
+    }
+
+    async Task DeleteUsuario(int id)
     {
         try
         {
-            var response = await Http.DeleteAsync($"https://localhost:7124/api/Doador/{id}");
+            var response = await Http.DeleteAsync($"https://localhost:7165/api/Usuario/{id}");
 
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                var deleteResponse = JsonSerializer.Deserialize<DeleteResponse>(content);
 
                 if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("Deu bom");
+                    await GetUsuarios();
                 }
                 else
                 {
