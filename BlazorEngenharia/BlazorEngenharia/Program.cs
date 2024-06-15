@@ -1,4 +1,5 @@
 using BlazorEngenharia;
+using BlazorEngenharia.Service;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +16,9 @@ public class Program
 
         builder.Services.AddAuthorizationCore();
         builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
-    
+
+        builder.Services.AddScoped<UsuarioState>();
+
 
         // Configurar HttpClient com suporte a autenticação
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });

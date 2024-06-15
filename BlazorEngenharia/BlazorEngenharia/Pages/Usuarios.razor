@@ -1,84 +1,105 @@
 ﻿@page "/usuarios"
 @using System.Text.Json
+@using BlazorEngenharia.Service
 @using Microsoft.AspNetCore.Components.Authorization
 @inject NavigationManager NavigationManager
 @inject HttpClient Http;
+@inject UsuarioState UsuarioState
 
-
-<h1>Tela de usuários</h1>
-<button id="BtnAddUser" class="btn btn-success" @onclick="@AddUser">Adicionar usuário</button>
-<style>
-    #GdvDoador th {
-        border: 1px solid black;
-        padding: 5px;
-    }
-
-    #GdvDoador td {
-        border: 1px solid black;
-        padding: 5px;
-    }
-
-    #GdvDoador {
-        margin-top: 2rem;
-    }
-
-    #BtnAddUser {
-        margin-bottom: 2rem;
-    }
-</style>
-
-@if (Loading)
+@if (UsuarioState.IsLoggedIn)
 {
-    <p>Carregando...</p>
-}
-else if (usuarios != null)
-{
-    <table id="GdvDoador">
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Login</th>
-                <th>Senha</th>
-                <th>Tipo</th>
-                <th>Data Criação</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in usuarios)
-            {
+
+
+    <h1>Tela de usuários</h1>
+    @if (UsuarioState.Usuario.TipoAcesso == 0)
+    {
+        <button id="BtnAddUser" class="btn btn-success" @onclick="@AddUser">Adicionar usuário</button>
+    }
+
+    <button id="" class="btn btn-danger" @onclick="@Logout">Logout</button>
+
+    <style>
+        #GdvDoador th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #GdvDoador td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #GdvDoador {
+            margin-top: 2rem;
+        }
+
+        #BtnAddUser {
+            margin-bottom: 2rem;
+        }
+    </style>
+
+    @if (Loading)
+    {
+        <p>Carregando...</p>
+    }
+    else if (usuarios != null)
+    {
+        <table id="GdvDoador">
+            <thead>
                 <tr>
-                    <td><a style="cursor: pointer;" @onclick="() => ViewUser(item.Id)"><i class="fas fa-eye"></i></a></td>
-                    <td><a style="cursor: pointer;" @onclick="() => UpdateUser(item.Id)"><i class="fas fa-pen"></i></a></td>
-                    <td><a style="cursor: pointer;" @onclick="() => DeleteUsuario(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
-                    <td>@item.Id</td>
-                    <td>@item.Nome</td>
-                    <td>@item.Login</td>
-                    <td>@item.Senha</td>
-                    <td>@item.TipoAcesso</td>
-                    <td>@item.DataCriacao</td>
+                    @if (UsuarioState.Usuario.TipoAcesso == 0)
+                    {
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    }
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Login</th>
+                    <th>Senha</th>
+                    <th>Tipo</th>
+                    <th>Data de Criação</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in usuarios)
+                {
+                    <tr>
+                        @if (UsuarioState.Usuario.TipoAcesso == 0)
+                        {
+                            <td><a style="cursor: pointer;" @onclick="() => ViewUser(item.Id)"><i class="fas fa-eye"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => UpdateUser(item.Id)"><i class="fas fa-pen"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => DeleteUsuario(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                        }
+                        <td>@item.Id</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Login</td>
+                        <td>@item.Senha</td>
+                        <td>@item.TipoAcesso</td>
+                        <td>@item.DataCriacao</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    }
+
 }
+
 
 
 @code {
     List<Usuario> usuarios = new List<Usuario>();
     private bool Loading = true;
     private Usuario user = new Usuario();
+
     async Task GetUsuarios()
     {
         try
         {
 
             var response = await Http.GetFromJsonAsync<List<Usuario>>("https://localhost:7165/api/Usuario");
-
-
 
             if (response != null)
             {
@@ -108,12 +129,26 @@ else if (usuarios != null)
 
     public void ViewUser(int id)
     {
-        NavigationManager.NavigateTo("/adicionarUsuario");
+        NavigationManager.NavigateTo($"/viewUser/{id}");
+    }
+
+    public async Task Logout()
+    {
+        UsuarioState.Logout();
+        NavigationManager.NavigateTo("/");
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await GetUsuarios();
+
+        @if (UsuarioState.IsLoggedIn)
+        {
+            await GetUsuarios();
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
     }
 
     async Task DeleteUsuario(int id)

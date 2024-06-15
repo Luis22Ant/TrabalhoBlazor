@@ -1,9 +1,11 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
+﻿@using BlazorEngenharia.Service
+@using Microsoft.AspNetCore.Components.Authorization
 @inherits LayoutComponentBase
+@inject UsuarioState UsuarioState
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazorEngenharia</a>
+        <a class="navbar-brand" href="">Engenharia</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,19 +14,33 @@
 
 <div class="@NavMenuCssClass nav-scrollable">
     <nav @onclick="ToggleNavMenu" class="flex-column">
+        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
+            <NavLink class="nav-link" href="home">
+                <i class="fa-solid fa-house"></i> &nbsp;&nbsp;<span aria-hidden="true">  Home</span>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
+            <NavLink class="nav-link" href="itens">
+                <i class="fa-solid fa-tractor"></i> &nbsp;&nbsp;<span aria-hidden="true">  Itens</span>
+            </NavLink>
+        </div>
 
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
+            <NavLink class="nav-link" href="grupos">
+                <i class="fa-solid fa-layer-group"></i> &nbsp;&nbsp;<span aria-hidden="true">  Grupos</span>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
             <NavLink class="nav-link" href="usuarios">
                 <i class="fa-solid fa-user"></i> &nbsp;&nbsp;<span aria-hidden="true">  Usuários</span>
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" style="margin-top: 2vh;display: @(UsuarioState.IsLoggedIn ? "none" : "block")">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Login
             </NavLink>
         </div>
-
     </nav>
 </div>
 
@@ -35,5 +51,15 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override void OnInitialized()
+    {
+        UsuarioState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        UsuarioState.OnChange -= StateHasChanged;
     }
 }

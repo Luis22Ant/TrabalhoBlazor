@@ -30,8 +30,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Grupos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3J1cG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Itens.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/UpdateUser.razor]
@@ -40,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Usuarios.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/ViewUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1VzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/galoc/Desktop/Blazor/BlazorEngenharia/BlazorEngenharia/Pages/Weather.razor]
