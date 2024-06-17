@@ -16,7 +16,7 @@
         <button id="BtnAddUser" class="btn btn-success" @onclick="@AddUser">Adicionar usuário</button>
     }
 
-    <button id="" class="btn btn-danger" @onclick="@Logout">Logout</button>
+
 
     <style>
         #GdvDoador th {
@@ -59,6 +59,7 @@
                     <th>Senha</th>
                     <th>Tipo</th>
                     <th>Data de Criação</th>
+                    <th>Último acesso</th>
                 </tr>
             </thead>
             <tbody>
@@ -77,6 +78,7 @@
                         <td>@item.Senha</td>
                         <td>@item.TipoAcesso</td>
                         <td>@item.DataCriacao</td>
+                        <td>@item.UltimoAcesso</td>
                     </tr>
                 }
             </tbody>
@@ -132,11 +134,7 @@
         NavigationManager.NavigateTo($"/viewUser/{id}");
     }
 
-    public async Task Logout()
-    {
-        UsuarioState.Logout();
-        NavigationManager.NavigateTo("/");
-    }
+
 
     protected override async Task OnInitializedAsync()
     {

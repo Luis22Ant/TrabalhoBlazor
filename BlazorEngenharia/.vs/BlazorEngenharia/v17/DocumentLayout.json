@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\application\\item\\update\\updateusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\application\\item\\update\\updateusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\application\\item\\delete\\deleteusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\application\\item\\delete\\deleteusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Update\\UpdateUseCase.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Application\\Item\\Update\\UpdateUseCase.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Update\\UpdateUseCase.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Application\\Item\\Update\\UpdateUseCase.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T18:36:17.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeleteUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Delete\\DeleteUseCase.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Application\\Item\\Delete\\DeleteUseCase.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Delete\\DeleteUseCase.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Application\\Item\\Delete\\DeleteUseCase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T18:30:19.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemController.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAuwEgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T18:17:49.53Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

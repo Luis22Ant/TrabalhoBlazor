@@ -1,7 +1,9 @@
 ﻿@using BlazorEngenharia.Service
 @using Microsoft.AspNetCore.Components.Authorization
+@using static BlazorEngenharia.Pages.Login
 @inherits LayoutComponentBase
 @inject UsuarioState UsuarioState
+@inject NavigationManager NavigationManager
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -30,7 +32,7 @@
                 <i class="fa-solid fa-layer-group"></i> &nbsp;&nbsp;<span aria-hidden="true">  Grupos</span>
             </NavLink>
         </div>
-        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
+        <div class="nav-item px-3" style="display: @(UsuarioState.IsLoggedIn && UsuarioState.Usuario.TipoAcesso == TipoAcesso.Admin ? "block" : "none")">
             <NavLink class="nav-link" href="usuarios">
                 <i class="fa-solid fa-user"></i> &nbsp;&nbsp;<span aria-hidden="true">  Usuários</span>
             </NavLink>
@@ -39,6 +41,11 @@
         <div class="nav-item px-3" style="margin-top: 2vh;display: @(UsuarioState.IsLoggedIn ? "none" : "block")">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Login
+            </NavLink>
+        </div>
+        <div class="nav-item px-3" style="margin-top: 2vh;display: @(UsuarioState.IsLoggedIn ? "block" : "none")">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <button id="" class="btn btn-danger" @onclick="@Logout">Logout</button>
             </NavLink>
         </div>
     </nav>
@@ -61,5 +68,10 @@
     public void Dispose()
     {
         UsuarioState.OnChange -= StateHasChanged;
+    }
+    public async Task Logout()
+    {
+        UsuarioState.Logout();
+        NavigationManager.NavigateTo("/");
     }
 }

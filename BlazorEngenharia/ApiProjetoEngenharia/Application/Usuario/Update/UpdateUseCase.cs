@@ -18,7 +18,7 @@ namespace ApiProjetoEngenharia.Application.Usuario.Update
             entity.Login = user.Login;
             entity.Senha = user.Senha;
             entity.Nome = user.Nome;
-            entity.TipoAcesso = user.TipoAcesso;
+            //entity.TipoAcesso = user.TipoAcesso;
 
             _context.USUARIOS.Update(entity);
             await _context.SaveChangesAsync();

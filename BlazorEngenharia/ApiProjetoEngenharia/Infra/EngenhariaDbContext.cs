@@ -14,5 +14,13 @@ namespace ApiProjetoEngenharia.Infra
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-215IJJK;Database=EngenhariaProjeto;UID=DESKTOP-215IJJK\\galoc;PWD='';Integrated Security=true;trustServerCertificate=true");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Grupo>()
+                .Ignore(g => g.Items);
+
+      
+        }
     }
 }

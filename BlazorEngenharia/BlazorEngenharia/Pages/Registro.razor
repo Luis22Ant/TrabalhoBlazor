@@ -1,0 +1,61 @@
+﻿@page "/register"
+@using static BlazorEngenharia.Pages.Login
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Cadastro</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@user" OnValidSubmit="@CadastrarUser">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <InputText @bind-Value="user.Nome" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Login</label>
+                    <InputText @bind-Value="user.Login" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <InputText @bind-Value="user.Senha" type="password" class="form-control" />
+                </div>
+                <div style="margin-top:1vh;">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    private Usuario user = new Usuario();
+    private async Task CadastrarUser()
+    {
+        try
+        {
+            user.TipoAcesso = TipoAcesso.Usuario;
+
+            var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Usuario", user);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+
+                Console.WriteLine("Falha no login!");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao fazer login: {ex.Message}");
+        }
+    }
+
+}
