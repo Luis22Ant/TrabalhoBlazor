@@ -1,0 +1,104 @@
+﻿@page "/adicionarItem"
+@using static BlazorEngenharia.Pages.Grupos
+@using static BlazorEngenharia.Pages.Itens
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Adicionar Item</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@item" OnValidSubmit="@CadastrarItem">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <InputText @bind-Value="item.Descricao" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Cor</label>
+                    <InputText @bind-Value="item.Cor" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Marca</label>
+                    <InputText @bind-Value="item.Marca" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Ativo</label>
+                    <InputSelect @bind-Value="item.Ativo" class="form-control">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </InputSelect>
+                </div>
+                <div class="form-group">
+                    <label>Grupo</label>
+                    <InputSelect @bind-Value="item.GrupoId" class="form-control">
+                        @foreach (var item in grupoList)
+                        {
+                            <option value="@item.Id">@item.Descricao</option>
+
+                        }
+                    </InputSelect>
+                </div>
+                <div style="margin-top:1vh;">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button class="btn btn-danger" @onclick="@VoltarTela">Voltar</button>
+                </div>
+
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    private Item item = new Item();
+    List<Grupo> grupoList = new List<Grupo>();
+    private async Task CadastrarItem()
+    {
+        try
+        {
+
+            var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Item", item);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo("/itens");
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    async Task getGrupos()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Grupo>>("https://localhost:7165/api/Grupo");
+
+            if (response != null)
+            {
+                grupoList = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+
+    public void VoltarTela()
+    {
+        NavigationManager.NavigateTo("/itens");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await getGrupos();
+    }
+}

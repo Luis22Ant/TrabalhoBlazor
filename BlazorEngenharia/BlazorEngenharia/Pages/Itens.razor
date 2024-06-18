@@ -10,9 +10,12 @@
 {
 
 
-    <h1>Tela de usuários</h1>
+    <h1>Tela de itens</h1>
+    @if (UsuarioState.Usuario.TipoAcesso == 0)
+    {
+        <button id="BtnAddUser" class="btn btn-success" @onclick="@AddItem">Adicionar item</button>
+    }
 
-    <button id="BtnAddUser" class="btn btn-success" @onclick="@AddItem">Adicionar item</button>
 
     <style>
         #GdvDoador th {
@@ -61,16 +64,18 @@
                 @foreach (var item in ItensList)
                 {
                     <tr>
-
-                        <td><a style="cursor: pointer;" @onclick="() => ViewItem(item.Id)"><i class="fas fa-eye"></i></a></td>
-                        <td><a style="cursor: pointer;" @onclick="() => UpdateItem(item.Id)"><i class="fas fa-pen"></i></a></td>
-                        <td><a style="cursor: pointer;" @onclick="() => DeleteItem(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                        @if (UsuarioState.Usuario.TipoAcesso == 0)
+                        {
+                            <td><a style="cursor: pointer;" @onclick="() => ViewItem(item.Id)"><i class="fas fa-eye"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => UpdateItem(item.Id)"><i class="fas fa-pen"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => DeleteItem(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                        }
                         <td>@item.Id</td>
                         <td>@item.Descricao</td>
                         <td>@item.Marca</td>
                         <td>@item.Cor</td>
                         <td>@item.Ativo</td>
-                        <td>@item.GrupoDescricao</td>
+                        <td>@item.GrupoId</td>
 
                     </tr>
                 }
@@ -103,7 +108,26 @@
 
     async Task DeleteItem(int id)
     {
+        var response = await Http.DeleteAsync($"https://localhost:7165/api/Item/{id}");
 
+        if (response.IsSuccessStatusCode)
+        {
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Deu bom");
+                await getItens();
+            }
+            else
+            {
+                Console.WriteLine("Deu ruim");
+            }
+
+        }
+        else
+        {
+            Console.WriteLine($"Falha na requisição DELETE. Status code: {response.StatusCode}");
+        }
     }
 
     async Task getItens()
@@ -130,13 +154,8 @@
 
     public void AddItem()
     {
-
+        NavigationManager.NavigateTo("/adicionarItem");
     }
-
-
-
-
-
 
     public class Item
     {
@@ -145,7 +164,7 @@
         public string Marca { get; set; } = string.Empty;
         public string Cor { get; set; } = string.Empty;
         public string Ativo { get; set; } = string.Empty;
-        public string GrupoDescricao { get; set; } = string.Empty;
+
 
         public int GrupoId { get; set; }
     }

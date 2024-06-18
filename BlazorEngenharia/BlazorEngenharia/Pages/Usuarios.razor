@@ -8,16 +8,11 @@
 
 @if (UsuarioState.IsLoggedIn)
 {
-
-
     <h1>Tela de usuários</h1>
     @if (UsuarioState.Usuario.TipoAcesso == 0)
     {
         <button id="BtnAddUser" class="btn btn-success" @onclick="@AddUser">Adicionar usuário</button>
     }
-
-
-
     <style>
         #GdvDoador th {
             border: 1px solid black;

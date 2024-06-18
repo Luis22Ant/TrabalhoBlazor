@@ -1,0 +1,63 @@
+﻿@page "/adicionarGrupo"
+@using static BlazorEngenharia.Pages.Grupos
+@using static BlazorEngenharia.Pages.Itens
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Adicionar Grupo</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@grupo" OnValidSubmit="@CadastrarGrupo">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <InputText @bind-Value="grupo.Descricao" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <InputText @bind-Value="grupo.Tipo" type="text" class="form-control" />
+                </div>
+                <div style="margin-top:1vh;">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button class="btn btn-danger" @onclick="@VoltarTela">Voltar</button>
+                </div>
+
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    private Grupo grupo = new Grupo();
+
+    private async Task CadastrarGrupo()
+    {
+        try
+        {
+
+            var response = await Http.PostAsJsonAsync("https://localhost:7165/api/Grupo", grupo);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo("/grupos");
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    public void VoltarTela()
+    {
+        NavigationManager.NavigateTo("/grupos");
+    }
+
+
+}

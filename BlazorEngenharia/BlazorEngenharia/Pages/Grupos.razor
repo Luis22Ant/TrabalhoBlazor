@@ -1,6 +1,159 @@
 ﻿@page "/grupos"
-<h3>Grupos</h3>
+@using System.Text.Json
+@using BlazorEngenharia.Service
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager NavigationManager
+@inject HttpClient Http;
+@inject UsuarioState UsuarioState
+
+@if (UsuarioState.IsLoggedIn)
+{
+    <h1>Tela de grupos</h1>
+    @if (UsuarioState.Usuario.TipoAcesso == 0)
+    {
+        <button id="BtnAddUser" class="btn btn-success" @onclick="@AddGrupo">Adicionar grupo</button>
+    }
+
+    <style>
+        #GdvDoador th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #GdvDoador td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #GdvDoador {
+            margin-top: 2rem;
+        }
+
+        #BtnAddUser {
+            margin-bottom: 2rem;
+        }
+    </style>
+
+    @if (Loading)
+    {
+        <p>Carregando...</p>
+    }
+    else if (grupoList != null)
+    {
+        <table id="GdvDoador">
+            <thead>
+                <tr>
+                    @if (UsuarioState.Usuario.TipoAcesso == 0)
+                    {
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    }
+                    <th>Id</th>
+                    <th>Descricao</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in grupoList)
+                {
+                    <tr>
+                        @if (UsuarioState.Usuario.TipoAcesso == 0)
+                        {
+                            <td><a style="cursor: pointer;" @onclick="() => ViewGrupo(item.Id)"><i class="fas fa-eye"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => UpdateGrupo(item.Id)"><i class="fas fa-pen"></i></a></td>
+                            <td><a style="cursor: pointer;" @onclick="() => DeleteGrupo(item.Id)"><i class="fa-solid fa-trash"></i></a></td>
+                        }
+                        <td>@item.Id</td>
+                        <td>@item.Descricao</td>
+                        <td>@item.Tipo</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    }
+
+}
 
 @code {
+    List<Grupo> grupoList = new List<Grupo>();
+    bool Loading = true;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await getGrupos();
+    }
+
+    public void ViewGrupo(int id)
+    {
+
+    }
+    public void UpdateGrupo(int id)
+    {
+        NavigationManager.NavigateTo($"/atualizarGrupo/{id}");
+    }
+
+    async Task DeleteGrupo(int id)
+    {
+        var response = await Http.DeleteAsync($"https://localhost:7165/api/Grupo/{id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Deu bom");
+                await getGrupos();
+            }
+            else
+            {
+                Console.WriteLine("Deu ruim");
+            }
+
+        }
+        else
+        {
+            Console.WriteLine($"Falha na requisição DELETE. Status code: {response.StatusCode}");
+        }
+    }
+
+    async Task getGrupos()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Grupo>>("https://localhost:7165/api/Grupo");
+
+            if (response != null)
+            {
+                grupoList = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+
+        finally
+        {
+            Loading = false;
+        }
+    }
+
+    public void AddGrupo()
+    {
+        NavigationManager.NavigateTo("/adicionarGrupo");
+    }
+
+    public class Grupo
+    {
+        public int Id { get; set; }
+        public string Descricao { get; set; } = string.Empty;
+        public string Tipo { get; set; } = string.Empty;
+
+    }
+
 
 }
