@@ -20,7 +20,7 @@ namespace ApiProjetoEngenharia.Application.Usuario.Register
                 Nome = request.Nome,
                 Login = request.Login,
                 Senha = request.Senha,
-                //TipoAcesso = (Infra.Models.TipoAcesso)request.TipoAcesso,
+                TipoAcesso = (Infra.Models.TipoAcesso)request.TipoAcesso,
                 DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
             };
 

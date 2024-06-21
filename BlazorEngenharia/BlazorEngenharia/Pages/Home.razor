@@ -1,9 +1,89 @@
 ﻿@page "/home"
 @using BlazorEngenharia.Service
+@using static BlazorEngenharia.Pages.Itens
 @inject UsuarioState UsuarioState
+@inject HttpClient Http
 
 <h3>Bem vindo @UsuarioState.Usuario.Nome</h3>
 
-@code {
 
+<div class="container" style="    margin-top: 5%;border-radius: 2rem;
+    border: 1px solid black;
+    background-color: lightblue;
+    height: 26vh;">
+    <div class="row" style="    margin-top: 2vh;">
+
+
+   
+        <div class="col-md-4">
+            <h2>Usuários <i class="fas fa-user"></i></h2>
+            <h4> @usuarios.Count()</h4>
+        </div>
+        <div class="col-md-4">
+            <h2>Itens <i class="fas fa-tractor"></i></h2>
+            <h4> @itens.Count()</h4>
+        </div>
+        <div class="col-md-4">
+            <h2>Grupos <i class="fas fa-layer-group"></i></h2>
+            <h4> @grupos.Count()</h4>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<Item> itens = new List<Item>();
+    List<Usuarios> usuarios = new List<Usuarios>();
+    List<Grupos> grupos = new List<Grupos>();
+
+    async Task BuscarUsuarios()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Usuarios>>("https://localhost:7165/api/Usuario");
+
+            if (response != null)
+                usuarios = response;
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    async Task BuscarItens()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Item>>("https://localhost:7165/api/Item");
+
+            if (response != null)
+                itens = response;
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    async Task BuscarGrupos()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Grupos>>("https://localhost:7165/api/Grupo");
+
+            if (response != null)
+                grupos = response;
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await BuscarGrupos();
+        await BuscarItens();
+        await BuscarUsuarios();
+    }
 }

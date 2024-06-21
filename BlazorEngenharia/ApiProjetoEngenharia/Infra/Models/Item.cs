@@ -9,6 +9,6 @@
         public string Ativo { get; set; } = string.Empty;
 
         public int GrupoId { get; set; }
-        public Grupo Grupo { get; set; }
+        public Grupo? Grupo { get; set; }
     }
 }

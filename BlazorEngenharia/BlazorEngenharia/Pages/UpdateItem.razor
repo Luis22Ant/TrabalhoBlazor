@@ -1,0 +1,134 @@
+﻿@page "/alterarItem/{id:int}"
+@using static BlazorEngenharia.Pages.Grupos
+@using static BlazorEngenharia.Pages.Usuarios
+@using static BlazorEngenharia.Pages.Itens
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Atualizar grupo</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@item" OnValidSubmit="@Atualizar">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <InputText @bind-Value="item.Descricao" type="text" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <InputText @bind-Value="item.Marca" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <InputText @bind-Value="item.Cor" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Ativo</label>
+                    <InputSelect @bind-Value="item.Ativo" class="form-control">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </InputSelect>
+                </div>
+                <div class="form-group">
+                    <label>Grupo</label>
+                    <InputSelect @bind-Value="item.GrupoId" class="form-control">
+                        @foreach (var item in grupoList)
+                        {
+                            <option value="@item.Id">@item.Descricao</option>
+
+                        }
+                    </InputSelect>
+                </div>
+                <div style="margin-top:1vh;">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button class="btn btn-danger" @onclick="@VoltarTela">Voltar</button>
+                </div>
+
+            </EditForm>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    Item item = new Item();
+    List<Grupo> grupoList = new List<Grupo>();
+    [Parameter]
+    public int id { get; set; }
+    private async Task Atualizar()
+    {
+        try
+        {
+
+            var response = await Http.PutAsJsonAsync("https://localhost:7165/api/Item/" + id, item);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo("/itens");
+            }
+            else
+            {
+
+                Console.WriteLine("Falha na alteração!");
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+
+    private async Task CarregarItem()
+    {
+        try
+        {
+            var url = "https://localhost:7165/api/Item/" + id;
+            var response = await Http.GetFromJsonAsync<Item>(url);
+
+            if (response != null)
+            {
+                item = response;
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+
+    async Task getGrupos()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<List<Grupo>>("https://localhost:7165/api/Grupo");
+
+            if (response != null)
+            {
+                grupoList = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await CarregarItem();
+        await getGrupos();
+    }
+
+    public void VoltarTela()
+    {
+        NavigationManager.NavigateTo("/itens");
+    }
+}

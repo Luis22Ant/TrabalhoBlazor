@@ -7,6 +7,7 @@ using ApiProjetoEngenharia.Infra.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ApiProjetoEngenharia.Application.Item.Update;
+using ApiProjetoEngenharia.Application.Item.Filter;
 
 namespace ApiProjetoEngenharia.Controllers
 {
@@ -80,8 +81,24 @@ namespace ApiProjetoEngenharia.Controllers
         {
             var useCase = new UpdateUseCase();
 
-            var response = await useCase.Execute(itemId,request);
+            var response = await useCase.Execute(itemId, request);
 
+            if (response is null)
+                return NotFound();
+
+            return Ok(response);
+        }
+
+
+
+
+        [HttpGet("filter/{ativo}")]
+
+        public async Task<IActionResult> GetItemFilter([FromRoute] string ativo)
+        {
+            var useCase = new GetItemFilterUseCase();
+
+            var response = await useCase.Execute(ativo);
             if (response is null)
                 return NotFound();
 

@@ -15,6 +15,7 @@ namespace ApiProjetoEngenharia.Application.Item.GetAll
         public async Task<List<Infra.Models.Item>> Execute()
         {
             var entities = await _context.ITENS
+                .Include(i => i.Grupo)
                 .ToListAsync();
 
             return entities;

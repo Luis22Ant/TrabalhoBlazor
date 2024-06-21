@@ -2,6 +2,7 @@
 @using System.Text.Json
 @using BlazorEngenharia.Service
 @using Microsoft.AspNetCore.Components.Authorization
+@using static BlazorEngenharia.Pages.Grupos
 @inject NavigationManager NavigationManager
 @inject HttpClient Http;
 @inject UsuarioState UsuarioState
@@ -11,9 +12,25 @@
 
 
     <h1>Tela de itens</h1>
+    <div class="filtros" style="    display: flex;">
+        <div class="form-group col-md-4">
+            <select style="width: 13vw;" class="form-control" @onchange="OnFilterChanged">
+                <option value="">Ativo</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <button class="btn btn-danger" @onclick="@getItens">Limpar Filtros</button>
+        </div>
+        <div class="form-group col-md-2">
+            <button class="btn btn-success" @onclick="@Pesquisar">Consultar</button>
+        </div>
+    </div>
+
     @if (UsuarioState.Usuario.TipoAcesso == 0)
     {
-        <button id="BtnAddUser" class="btn btn-success" @onclick="@AddItem">Adicionar item</button>
+        <button style="margin-top:2vh;" id="BtnAddUser" class="btn btn-success" @onclick="@AddItem">Adicionar item</button>
     }
 
 
@@ -31,11 +48,8 @@
         #GdvDoador {
             margin-top: 2rem;
         }
-
-        #BtnAddUser {
-            margin-bottom: 2rem;
-        }
     </style>
+
 
     @if (Loading)
     {
@@ -58,6 +72,7 @@
                     <th>Cor</th>
                     <th>Ativo</th>
                     <th>Grupo</th>
+                    <th>Tipo</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,7 +90,10 @@
                         <td>@item.Marca</td>
                         <td>@item.Cor</td>
                         <td>@item.Ativo</td>
-                        <td>@item.GrupoId</td>
+                        <td>@item.Grupo.Descricao</td>
+                        <td>@item.Grupo.Tipo</td>
+
+                     
 
                     </tr>
                 }
@@ -90,6 +108,12 @@
 @code {
     List<Item> ItensList = new List<Item>();
     bool Loading = true;
+    private string filtro = "";
+
+    private void OnFilterChanged(ChangeEventArgs e)
+    {
+        filtro = e.Value.ToString();
+    }
 
 
     protected override async Task OnInitializedAsync()
@@ -103,7 +127,7 @@
     }
     public void UpdateItem(int id)
     {
-
+        NavigationManager.NavigateTo($"/alterarItem/{id}");
     }
 
     async Task DeleteItem(int id)
@@ -157,6 +181,37 @@
         NavigationManager.NavigateTo("/adicionarItem");
     }
 
+    async Task Pesquisar()
+    {
+        if (!string.IsNullOrEmpty(filtro))
+        {
+
+
+            try
+            {
+                var response = await Http.GetFromJsonAsync<List<Item>>($"https://localhost:7165/api/Item/filter/{filtro}");
+
+                if (response != null)
+                {
+                    ItensList = response;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+
+            finally
+            {
+                Loading = false;
+            }
+        }
+        else
+        {
+            await getItens();
+        }
+    }
+
     public class Item
     {
         public int Id { get; set; }
@@ -165,7 +220,7 @@
         public string Cor { get; set; } = string.Empty;
         public string Ativo { get; set; } = string.Empty;
 
-
+        public Grupo? Grupo { get; set; }
         public int GrupoId { get; set; }
     }
 

@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\blazorengenharia\\pages\\usuarios.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|solutionrelative:blazorengenharia\\pages\\usuarios.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\blazorengenharia\\pages\\grupos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|solutionrelative:blazorengenharia\\pages\\grupos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\application\\item\\filter\\getitemfilterusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\application\\item\\filter\\getitemfilterusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\blazorengenharia\\pages\\itens.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D3A77456-5B6F-4F1F-B6F0-B42A07987EE8}|BlazorEngenharia\\BlazorEngenharia.csproj|solutionrelative:blazorengenharia\\pages\\itens.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\infra\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\infra\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|c:\\users\\galoc\\desktop\\blazor\\blazorengenharia\\apiprojetoengenharia\\application\\item\\getall\\getallusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D31EB119-020F-481F-A94D-B5E0B713AB90}|ApiProjetoEngenharia\\ApiProjetoEngenharia.csproj|solutionrelative:apiprojetoengenharia\\application\\item\\getall\\getallusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,32 +30,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Usuarios.razor",
-              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\Pages\\Usuarios.razor",
-              "RelativeDocumentMoniker": "BlazorEngenharia\\Pages\\Usuarios.razor",
-              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\Pages\\Usuarios.razor",
-              "RelativeToolTip": "BlazorEngenharia\\Pages\\Usuarios.razor",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAB8AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T18:16:54.62Z",
+              "DocumentIndex": 1,
+              "Title": "GetItemFilterUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Filter\\GetItemFilterUseCase.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Application\\Item\\Filter\\GetItemFilterUseCase.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\Filter\\GetItemFilterUseCase.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Application\\Item\\Filter\\GetItemFilterUseCase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T14:03:23.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Grupos.razor",
-              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\Pages\\Grupos.razor",
-              "RelativeDocumentMoniker": "BlazorEngenharia\\Pages\\Grupos.razor",
-              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\Pages\\Grupos.razor",
-              "RelativeToolTip": "BlazorEngenharia\\Pages\\Grupos.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T18:14:29.051Z",
+              "DocumentIndex": 3,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Infra\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Infra\\Models\\Item.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Infra\\Models\\Item.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Infra\\Models\\Item.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T14:01:29.615Z",
               "EditorCaption": ""
             },
             {
@@ -58,9 +66,35 @@
               "RelativeDocumentMoniker": "BlazorEngenharia\\Pages\\Itens.razor",
               "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\BlazorEngenharia\\Pages\\Itens.razor",
               "RelativeToolTip": "BlazorEngenharia\\Pages\\Itens.razor",
-              "ViewState": "AQIAAFwAAAAAAAAAAADgv2kAAAAAAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAAAEsAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T18:09:13.634Z",
+              "WhenOpened": "2024-06-21T13:55:10.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetAllUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\GetAll\\GetAllUseCase.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Application\\Item\\GetAll\\GetAllUseCase.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Application\\Item\\GetAll\\GetAllUseCase.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Application\\Item\\GetAll\\GetAllUseCase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T13:53:56.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemController.cs",
+              "DocumentMoniker": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "RelativeDocumentMoniker": "ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "ToolTip": "C:\\Users\\galoc\\Desktop\\Blazor\\BlazorEngenharia\\ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "RelativeToolTip": "ApiProjetoEngenharia\\Controllers\\ItemController.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAkwGEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T13:53:51.76Z",
               "EditorCaption": ""
             }
           ]
